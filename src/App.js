@@ -10,6 +10,7 @@ class App extends Component {
     }
   }
 
+  //when page loads, pull data from API to populate text field
   componentDidMount(){
     fetch("https://ip.nf/me.json")
       .then(res => res.json())
@@ -18,6 +19,7 @@ class App extends Component {
       }))
   }
 
+  //when user wants to pull data about another API, this method fetches data based on user input
   getSpecificAPI = async (e) => {
     e.preventDefault();
     await fetch(`https://ip.nf/${this.state.IP}.json`)
@@ -27,6 +29,7 @@ class App extends Component {
       }))
   }
 
+  //update state based on user input in text field
   handleIPChange = e => {
     this.setState({ IP: e.target.value })
   }
